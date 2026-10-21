@@ -1,0 +1,11 @@
+rootProject.name = 'spd-ai-probe'
+include ':SPD-classes', ':core', ':services', ':desktop', ':services:updates:githubUpdates', ':services:news:shatteredNews'
+project(':SPD-classes').projectDir = file('../SPD-classes')
+project(':core').projectDir = file('../core')
+project(':services').projectDir = file('../services')
+project(':desktop').projectDir = file('../desktop')
+project(':desktop').buildFileName = 'ai-probe.gradle'
+project(':services:updates:githubUpdates').projectDir = file('../services/updates/githubUpdates')
+project(':services:news:shatteredNews').projectDir = file('../services/news/shatteredNews')
+project(':services:news').projectDir = file('../services/news')
+project(':services:updates').projectDir = file('../services/updates')

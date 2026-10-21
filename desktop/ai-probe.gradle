@@ -1,0 +1,33 @@
+plugins { id 'application' }
+java.sourceCompatibility = java.targetCompatibility = appJavaCompatibility
+application.mainClass = 'com.shatteredpixel.shatteredpixeldungeon.desktop.DesktopLauncher'
+processResources {
+    from '../core/src/main/assets'
+    from 'src/main/assets'
+}
+dependencies {
+    implementation project(':core')
+    implementation "com.badlogicgames.gdx:gdx-freetype:$gdxVersion"
+    implementation "com.badlogicgames.gdx:gdx-backend-lwjgl3:$gdxVersion"
+    implementation "com.badlogicgames.gdx:gdx-platform:$gdxVersion:natives-desktop"
+    implementation "com.badlogicgames.gdx:gdx-freetype-platform:$gdxVersion:natives-desktop"
+    implementation "com.badlogicgames.gdx-controllers:gdx-controllers-desktop:$gdxControllersVersion"
+    implementation 'org.lwjgl:lwjgl-tinyfd:3.3.3'
+    implementation 'org.lwjgl:lwjgl-tinyfd:3.3.3:natives-windows'
+    implementation project(':services:updates:githubUpdates')
+    implementation project(':services:news:shatteredNews')
+}
+tasks.named('run') {
+    systemProperty 'Specification-Title', 'SPD AI Probe'
+    systemProperty 'Implementation-Title', 'com.shatteredpixel.shatteredpixeldungeon'
+    systemProperty 'Specification-Version', '4.0.2'
+    systemProperty 'Implementation-Version', '922'
+    systemProperty 'spd.ai.probe', 'true'
+}
+application.applicationDefaultJvmArgs = [
+    '-DSpecification-Title=SPD AI Probe',
+    '-DImplementation-Title=com.shatteredpixel.shatteredpixeldungeon',
+    '-DSpecification-Version=4.0.2',
+    '-DImplementation-Version=922',
+    '-Dspd.ai.probe=true'
+]
